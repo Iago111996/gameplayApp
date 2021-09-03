@@ -14,7 +14,7 @@ type Props = TouchableOpacityProps & {
     title: String
 };
 
-export const ButtonIcon = ({ title, ...rest } : Props) => {
+export const ButtonIcon = ({ title, ...rest }: Props) => {
     return(
         <TouchableOpacity 
         style={styles.container}
