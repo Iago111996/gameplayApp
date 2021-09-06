@@ -2,17 +2,21 @@ import * as React from 'react';
 import { Text, View, Image } from 'react-native';
 import { styles } from './styles';
 
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../routes/auth.routes';
+
 import { useNavigation } from '@react-navigation/native';
-import IllustrstionImg from '../../assets/illustration.png';
+
+import IllustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import { Background } from '../../components/Background';
 
+type homeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
+export const Signin: React.FC = () => {
+  const navigation = useNavigation<homeScreenProp>();
 
-export const Signin = () => {
-  const navigation = useNavigation();
-
-function hendleSignin()  {
+const hendleSignin = () =>{
     navigation.navigate('Home');
   }
 
@@ -21,7 +25,7 @@ function hendleSignin()  {
       <View style={styles.container} >
 
         <Image 
-          source={IllustrstionImg} 
+          source={IllustrationImg} 
           style={styles.image}
         />
 
@@ -39,8 +43,7 @@ function hendleSignin()  {
 
         <ButtonIcon 
         title="Entrar com Discord"
-        activeOpacity={0.7}
-        onPress={() => navigation.navigate('Home')}
+        onPress={hendleSignin}
          />
 
       </View>

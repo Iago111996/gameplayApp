@@ -4,7 +4,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Home } from '../views/Home';
 import { Signin } from '../views/Signin';
 
-const {Navigator, Screen} = createStackNavigator();
+export type RootStackParamList = {
+  Signin: undefined;
+  Home: undefined;
+};
+
+const {Navigator, Screen} = createStackNavigator<RootStackParamList>();
 
 export const AuthRoutes = () => {
   return(
