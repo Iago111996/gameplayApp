@@ -8,6 +8,7 @@ import { CategorySelect } from '../../components/CategorySelect/index';
 import { ListHeader } from '../../components/ListHeader';
 import { Background } from '../../components/Background';
 import { Appointments } from '../../components/Appointments';
+import { ListDivider } from '../../components/ListDivider';
 
 
 export const Home = () => {
@@ -28,7 +29,20 @@ export const Home = () => {
             },
             category: '1',
             date: '22/06 às 20:40h',
-            description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10'
+            description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
+
+        },
+        {
+            id: '2',
+            guild: {
+                id: '2',
+                name: 'Lendários',
+                icon: null,
+                owner: true,
+            },
+            category: '2',
+            date: '22/06 às 20:40h',
+            description: 'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
         }
     ]
 
@@ -59,6 +73,9 @@ export const Home = () => {
                         renderItem={({item}) => (
                             <Appointments data={item}/>
                         )}
+                        showsVerticalScrollIndicator={false}
+                        ItemSeparatorComponent={() => <ListDivider />}
+                        style={styles.matches}
                     />
 
                 </View>

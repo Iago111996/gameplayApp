@@ -28,7 +28,7 @@ export const Category = ({
          colors={[ secondary50, secondary70 ]}
         >
           <View style={[
-            styles.content, {opacity: checked ? 1 : 0.4}
+            styles.content, {opacity: checked ? 1 : 0.6}
             ]}>
 
             <View style={
