@@ -10,12 +10,25 @@ import { Background } from '../../components/Background';
 import { Appointments } from '../../components/Appointments';
 import { ListDivider } from '../../components/ListDivider';
 
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../routes/auth.routes';
 
-export const Home = () => {
+type homeScreenProp = StackNavigationProp<RootStackParamList, 'AppointmentDetails'>;
+
+
+
+
+export const Home: React.FC = () => {
+    const navigation = useNavigation<homeScreenProp>();
     const [category, setCategory] = useState('');
 
     const handleCategorySelect = (categoryId: string) => {
         categoryId === category ? setCategory('') : setCategory(categoryId);
+    }
+
+    const handleAppointmentDetails = () => {
+        navigation.navigate('AppointmentDetails');
     }
 
     const appointments =[
@@ -71,7 +84,10 @@ export const Home = () => {
                         data={appointments}
                         keyExtractor={item => item.id}
                         renderItem={({item}) => (
-                            <Appointments data={item}/>
+                            <Appointments
+                             data={item}
+                             onPress={handleAppointmentDetails}
+                            />
                         )}
                         showsVerticalScrollIndicator={false}
                         ItemSeparatorComponent={() => <ListDivider />}

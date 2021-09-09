@@ -1,12 +1,16 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { theme } from '../global/styles/theme';
+
 import { Home } from '../views/Home';
 import { Signin } from '../views/Signin';
+import { AppointmentDetails } from '../views/AppointmentDetails';
 
 export type RootStackParamList = {
   Signin: undefined;
   Home: undefined;
+  AppointmentDetails: undefined;
 };
 
 const {Navigator, Screen} = createStackNavigator<RootStackParamList>();
@@ -18,7 +22,7 @@ export const AuthRoutes = () => {
     screenOptions={{
     headerShown: false,
     cardStyle: {
-      backgroundColor: 'transparent',
+      backgroundColor: theme.colors.secondary100,
       opacity: 1
     }
     }}
@@ -29,7 +33,13 @@ export const AuthRoutes = () => {
       />
       <Screen 
       name="Home" 
-      component={Home} />
+      component={Home} 
+      />
+      <Screen
+      name="AppointmentDetails"
+      component={AppointmentDetails}
+      />
+      
     </Navigator>
   );
 } ;
