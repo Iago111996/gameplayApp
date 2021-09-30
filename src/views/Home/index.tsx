@@ -17,8 +17,6 @@ import { RootStackParamList } from '../../routes/auth.routes';
 type homeScreenProp = StackNavigationProp<RootStackParamList, 'AppointmentDetails'>;
 
 
-
-
 export const Home: React.FC = () => {
     const navigation = useNavigation<homeScreenProp>();
     const [category, setCategory] = useState('');
